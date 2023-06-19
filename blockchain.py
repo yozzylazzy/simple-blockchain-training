@@ -62,11 +62,14 @@ class Blockchain:
 # Create a blockchain
 def main():
     blockchain = Blockchain()
-    blockchain.add_block(Block(1, time.time(), "Block 1", ""))
-    blockchain.add_block(Block(2, time.time(), "Block 2", ""))
-    blockchain.add_block(Block(3, time.time(), "Block 3", ""))
+    blockchain.add_block(Block(1, time.time(), "Block Sector A", "2020130002"))
+    blockchain.add_block(Block(2, time.time(), "Block Sector B", "2020130001"))
+    blockchain.add_block(Block(3, time.time(), "Block Sector B", "2020130017"))
 
-    # blockchain.print_chain()
+    blockchain.print_chain()
+
+    # Make blockchain invalid here
+    # blockchain.chain[1].hash = ""
 
     if blockchain.is_chain_valid():
         print("The blockchain is valid")
