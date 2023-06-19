@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from blockchain import Blockchain, Block
 import time
 import json
@@ -11,6 +11,16 @@ blockchain.add_block(Block(3, time.time(), 'Block Sector C', '2020130017'))
 
 # --- Web 3.0 App ---
 app = Flask(__name__)
+
+# create jsonify
+def to_json(block):
+    return {
+        "Block #{}".format(block.index),
+        "Timestamp: {}".format(block.timestamp),
+        "Data: {}".format(block.data),
+        "Previous Hash: {}".format(block.previous_hash),
+        "Hash: {}".format(block.hash)   
+    }
 
 @app.context_processor
 def inject_blockchain():

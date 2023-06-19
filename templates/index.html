@@ -6,13 +6,14 @@
 </head>
 <body>
    <h1>Welcome!!!</h1>
-   {% for block in(blockchain) %}
-    {{block.print_chain()}}
-    {{block.timestamp}}
-    {{block.data}}
-    {{block.previous_hash}}
-    {{block.hash}}
-   {%endfor%}
-   {{blockchain}}
+   {% if blockchain %}
+   {% for block in blockchain.chain %}
+   <h3>{{("Block #{}".format(block.index))}}</h3>
+   <p>{{("Timestamp: {}".format(block.timestamp))}}</p>
+   <p>{{("Data: {}".format(block.data))}}</p>
+   <p>{{("Previous Hash: {}".format(block.previous_hash))}}</p>
+   <p>{{("Hash: {}".format(block.hash))}}</p>
+   {% endfor %}
+   {% endif %}
 </body>
 </html>
