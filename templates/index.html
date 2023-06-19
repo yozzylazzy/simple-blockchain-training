@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web 3.0 Simple Training</title>
+</head>
+<body>
+   <h1>Welcome!!!</h1>
+   {% for block in(blockchain) %}
+    {{block.print_chain()}}
+    {{block.timestamp}}
+    {{block.data}}
+    {{block.previous_hash}}
+    {{block.hash}}
+   {%endfor%}
+   {{blockchain}}
+</body>
+</html>
